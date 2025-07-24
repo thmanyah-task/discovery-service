@@ -24,4 +24,5 @@ public class EpisodeDto {
     private String description;
     private Double duration;
     private String episodeUrl;
+    private String thumbnail;
 }
