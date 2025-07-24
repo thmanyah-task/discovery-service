@@ -21,12 +21,13 @@ public interface ProgrammeClient {
     public ApiResponse<List<ProgrammeDto>> getListOfProgrammes(
             @RequestParam(name = "programmeSubject",value = "programmeSubject", required = false) String programmeSubject,
             @RequestParam(name = "programmeDescription",value = "programmeDescription", required = false) String programmeDescription,
+            @RequestParam(name = "programmePublishedDate",value = "programmePublishedDate", required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate programmePublishedDate,
             @RequestParam(name = "categoryNameAr",value = "categoryNameAr", required = false) String categoryNameAr,
             @RequestParam(name = "languageNameAr",value = "languageNameAr", required = false) String languageNameAr,
             @RequestParam(name = "episodeSubject",value = "episodeSubject", required = false) String episodeSubject,
             @RequestParam(name = "episodeDescription",value = "episodeDescription", required = false) String episodeDescription,
             @RequestParam(name = "episodeNumber",value = "episodeNumber", required = false) Integer episodeNumber,
-            @RequestParam(name = "publishedDate",value = "publishedDate", required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate publishedDate,
+            @RequestParam(name = "episodePublishedDate",value = "episodePublishedDate", required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate episodePublishedDate,
             @RequestParam(name = "page",value = "page", required = true) Integer page,
             @RequestParam(name = "size",value = "size", required = true) Integer size
     ) ;
