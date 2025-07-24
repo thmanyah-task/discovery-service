@@ -2,7 +2,7 @@ package com.thmanyah.discovery_service.programme.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.thmanyah.discovery_service.episode.EpisodeDto;
+import com.thmanyah.discovery_service.episode.dto.EpisodeDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

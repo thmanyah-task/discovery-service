@@ -1,4 +1,4 @@
-package com.thmanyah.discovery_service.episode;
+package com.thmanyah.discovery_service.episode.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
