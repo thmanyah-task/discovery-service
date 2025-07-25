@@ -3,6 +3,7 @@ package com.thmanyah.discovery_service.episode.controller;
 
 import com.thmanyah.discovery_service.episode.client.EpisodeClient;
 import com.thmanyah.discovery_service.episode.dto.EpisodeDto;
+import com.thmanyah.discovery_service.episode.service.EpisodeService;
 import com.thmanyah.discovery_service.shared.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,11 +19,11 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 public class EpisodeController {
 
-    private final EpisodeClient episodeClient;
+    private final EpisodeService episodeService;
 
     @GetMapping("/{episodeId}")
     public ApiResponse<EpisodeDto> getEpisodeById(@PathVariable("episodeId") Long episodeId){
-        EpisodeDto episodeDto = episodeClient.getEpisodeById(episodeId).getData();
+        EpisodeDto episodeDto = episodeService.findEpisodeById(episodeId);
         return ApiResponse.<EpisodeDto>builder()
                 .data(episodeDto)
                 .status(HttpStatus.CREATED)
