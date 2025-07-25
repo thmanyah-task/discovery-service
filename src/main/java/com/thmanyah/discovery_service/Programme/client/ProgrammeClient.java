@@ -28,6 +28,7 @@ public interface ProgrammeClient {
             @RequestParam(name = "episodeDescription",value = "episodeDescription", required = false) String episodeDescription,
             @RequestParam(name = "episodeNumber",value = "episodeNumber", required = false) Integer episodeNumber,
             @RequestParam(name = "episodePublishedDate",value = "episodePublishedDate", required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate episodePublishedDate,
+            @RequestParam(name= "episodeDuration",required = false) Double episodeDuration,
             @RequestParam(name = "page",value = "page", required = true) Integer page,
             @RequestParam(name = "size",value = "size", required = true) Integer size
     ) ;

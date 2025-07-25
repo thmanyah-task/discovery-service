@@ -3,6 +3,7 @@ package com.thmanyah.discovery_service.programme.service;
 import com.thmanyah.discovery_service.programme.dto.ProgrammeDto;
 import com.thmanyah.discovery_service.shared.ApiResponse;
 import org.springframework.data.domain.Page;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -20,6 +21,7 @@ public interface ProgrammeService {
             String episodeDescription,
             Integer episodeNumber,
             LocalDate episodePublishedDate,
+            Double episodeDuration,
             Integer page,
             Integer size
     );

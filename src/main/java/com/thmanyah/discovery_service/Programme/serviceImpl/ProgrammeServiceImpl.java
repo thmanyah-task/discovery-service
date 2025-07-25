@@ -7,6 +7,7 @@ import com.thmanyah.discovery_service.shared.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -34,6 +35,7 @@ public class ProgrammeServiceImpl implements ProgrammeService {
             String episodeDescription,
             Integer episodeNumber,
             LocalDate episodePublishedDate,
+            Double episodeDuration,
             Integer page,
             Integer size) {
 
@@ -47,6 +49,7 @@ public class ProgrammeServiceImpl implements ProgrammeService {
                 episodeDescription,
                 episodeNumber,
                 episodePublishedDate,
+                episodeDuration,
                 page,
                 size
         );
