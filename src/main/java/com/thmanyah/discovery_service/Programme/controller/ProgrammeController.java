@@ -2,6 +2,7 @@ package com.thmanyah.discovery_service.programme.controller;
 
 
 import com.thmanyah.discovery_service.programme.client.ProgrammeClient;
+import com.thmanyah.discovery_service.programme.service.ProgrammeService;
 import com.thmanyah.discovery_service.shared.ApiResponse;
 import com.thmanyah.discovery_service.programme.dto.ProgrammeDto;
 import lombok.RequiredArgsConstructor;
@@ -18,11 +19,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProgrammeController {
 
-    private final ProgrammeClient programmeClient;
+    private final ProgrammeService programmeService;
 
     @GetMapping("/{programmeId}")
     public ApiResponse<ProgrammeDto> getProgramme(@PathVariable("programmeId") Long programmeId){
-        ProgrammeDto programmeDto = programmeClient.getProgramme(programmeId).getData();
+        ProgrammeDto programmeDto = programmeService.findById(programmeId);
         return ApiResponse.<ProgrammeDto>builder()
                 .data(programmeDto)
                 .status(HttpStatus.OK)
@@ -40,13 +41,22 @@ public class ProgrammeController {
             @RequestParam(name = "episodeDescription", required = false) String episodeDescription,
             @RequestParam(name = "episodeNumber", required = false) Integer episodeNumber,
             @RequestParam(name = "episodePublishedDate", required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate episodePublishedDate,
-            @RequestParam(name = "page", required = true) Integer page,
-            @RequestParam(name = "size", required = true) Integer size
+            @RequestParam(name = "page") Integer page,
+            @RequestParam(name = "size") Integer size
     ) {
-
-        ApiResponse<List<ProgrammeDto>> programmeDtos = programmeClient.getListOfProgrammes(programmeSubject,
-                programmeDescription,programmePublishedDate,categoryNameAr,languageNameAr,episodeSubject,episodeDescription,
-                episodeNumber,episodePublishedDate,page,size);
+        ApiResponse<List<ProgrammeDto>> programmeDtos = programmeService.getListOfProgrammes(
+                programmeSubject,
+                programmeDescription,
+                programmePublishedDate,
+                categoryNameAr,
+                languageNameAr,
+                episodeSubject,
+                episodeDescription,
+                episodeNumber,
+                episodePublishedDate,
+                page,
+                size
+        );
 
         return ApiResponse.<List<ProgrammeDto>>builder()
                 .data(programmeDtos.getData())
@@ -56,5 +66,6 @@ public class ProgrammeController {
                 .timestamp(LocalDateTime.now())
                 .build();
     }
+
 
 }
