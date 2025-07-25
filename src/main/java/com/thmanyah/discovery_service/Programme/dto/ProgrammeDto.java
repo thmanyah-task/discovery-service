@@ -24,6 +24,7 @@ public class ProgrammeDto {
     private String description;
     private CategoryDto category;
     private LanguageDto language;
+    private String programmeUrl;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private LocalDate publishedDate;
     private String thumbnail;
